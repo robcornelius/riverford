@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# RIVERFORD CODE TEST
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To run this test please do the following
 
-## Available Scripts
+* clone the repository
+* cd into the directory you just created
+* run `node(mon) server.js`
+* this will start the react app and the back end
+* visit [localhost:8080](http://localhost:8080/) in your browser. You can check things are working by visiting [localhost:8080/ping](http://localhost:8080/ping)
 
-In the project directory, you can run:
+Sadly I havent had enough time to write tests or make the app look pretty. I have not been well and have a day job too.
 
-### `npm start`
+In an ideal world I would have imported the recipies into a database (probably MongoDB) and used that to search them and then create the Rest API from there. Again due to time constraints I haven't been able to do this. What I have done is weritten a few lines of javascript that loads all the txt files into memory and uses simple regexp matching. It's actually quite fast but of course under load it would explode.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Also as one last thing. Can I make a suggestion. Having to deal with well over 1000 text files as part of a demo project is actually quite a lot. 100 might well have been enough to show things working.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## tests I would have written
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* I would have used cypress to enter "chocolate" in the search box, then clicked on a random entry in the list and grepped for the word "chocolate" in the recipie. Then the same for "choc" etc.
+* I would have used jest for snapshot tests to catch breaking visual changes
+* I would have used either jest, react testing library or something similar to really test the logic for things like formatting list enteries etc.
