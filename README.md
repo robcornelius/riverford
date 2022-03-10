@@ -19,3 +19,5 @@ Also as one last thing. Can I make a suggestion. Having to deal with well over 1
 * I would have used cypress to enter "chocolate" in the search box, then clicked on a random entry in the list and grepped for the word "chocolate" in the recipie. Then the same for "choc" etc.
 * I would have used jest for snapshot tests to catch breaking visual changes
 * I would have used either jest, react testing library or something similar to really test the logic for things like formatting list enteries etc.
+
+# If I had lots of time I would have made the web server, react app, database etc into a docker image. C'est la guerre.
