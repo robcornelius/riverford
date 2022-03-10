@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ReactHTMLElement, useState } from "react";
+import React from "react";
 import { Col, Input, Button } from "antd";
 import { getRecipies } from "../../api/api";
 import useAppDetails from "../../hooks/AssetDetailsHook";
@@ -20,13 +20,9 @@ const Search: React.FC = () => {
     <>
       <Col span={14}>
         <h2>Search</h2>
-        <Input
-          placeholder="Search"
-          style={{ width: "250px" }}
-          onChange={handleSearchTermInput}
-        />
+        <Input placeholder="Search" onChange={handleSearchTermInput} />
       </Col>
-      <Col span={4}>
+      <Col span={4} style={{ textAlign: "right" }}>
         <Button onClick={handleSearch}>Search</Button>
       </Col>
     </>

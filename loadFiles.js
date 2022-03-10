@@ -6,7 +6,6 @@ function readFilesSync(dir) {
 
   fs.readdirSync(dir).forEach((filename) => {
     const name = path.parse(filename).name;
-    const ext = path.parse(filename).ext;
     const filepath = path.resolve(dir, filename);
     const stat = fs.statSync(filepath);
     const isFile = stat.isFile();
@@ -44,12 +43,14 @@ const filterRecipies = (filterText, files) => {
     if (found) {
       matches.push({ rank: found.length, fileName: name });
     }
+    return null;
   });
   return matches.slice(0, 10).sort(quickSort);
 };
 
 const loadFileDetails = (filename) => {
-  const fullPathToFile = path.join(__dirname, `/recipies/${filename}.txt`);
+  const fullPathToFile = path.join(__dirname, `/src/recipies/${filename}.txt`);
+  console.log("fullPathToFile", fullPathToFile);
   return fs.readFileSync(fullPathToFile, "utf8");
 };
 
