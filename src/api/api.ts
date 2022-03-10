@@ -6,6 +6,14 @@ export const getRecipies = async (searchTerm: string) => {
   } catch (e) {
     throw new Error("getRecpies failed");
   }
+  /*
+  return {
+    recipies: [
+      { rank: "1", fileName: "fish" },
+      { rank: "2", filename: "fish2" },
+    ],
+  };
+  */
 };
 
 export const getRecipie = async (fileName: string) => {

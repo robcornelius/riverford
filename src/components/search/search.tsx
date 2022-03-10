@@ -13,7 +13,7 @@ const Search: React.FC = () => {
   };
   const handleSearch = async () => {
     const recipiesList = await getRecipies(searchString);
-    setSearchResults(recipiesList);
+    setSearchResults(recipiesList.recipies);
   };
 
   return (

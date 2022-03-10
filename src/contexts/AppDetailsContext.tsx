@@ -3,16 +3,15 @@ import React, { createContext, useState, ReactNode } from "react";
 type AppContextProps = {
   children: ReactNode;
 };
-export type SearchResultsProps = {
+export type recipieObj = {
   rank: string;
-  fileName: string;
+  fileName?: string;
 };
-
 interface IAssetContextProps {
   searchString: string;
   setSearchString: (val: string) => void;
-  searchResults: SearchResultsProps[];
-  setSearchResults: (val: SearchResultsProps[]) => void;
+  searchResults: recipieObj[];
+  setSearchResults: (val: recipieObj[]) => void;
   recipie: string;
   setRecipie: (val: string) => void;
 }
