@@ -2,20 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import useAppDetails from "../../hooks/AssetDetailsHook";
 import { getRecipie } from "../../api/api";
-import { recipieObj } from "../../contexts/AppDetailsContext";
 
 const List = styled.ul`
   border: 1px solid #ccc;
-  border-radius: 2px;
+  border-radius: 5px;
   padding: 0;
-  margin-left: 30px;
-  min-height: 73vh;
+  width: 95%;
+  min-height: 50vh;
 `;
 
 const ListElement = styled.li`
   list-style-type: none;
   padding: 5px;
   border-bottom: 1px solid #ccc;
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    font-weight: 700;
+  }
 `;
 
 const RecipieList: React.FC = () => {
@@ -23,10 +27,9 @@ const RecipieList: React.FC = () => {
 
   const handleRecipieClick = async (ev: React.MouseEvent<HTMLLIElement>) => {
     const fileNameFromList = ev.currentTarget.getAttribute("data-filename");
+    console.log("fileNameFromList", fileNameFromList);
     const fileName = await getRecipie(fileNameFromList || "");
-    if (fileName) {
-      setRecipie(fileName);
-    }
+    setRecipie(fileName || "");
   };
 
   const getDisplayName = (fileName: string | undefined) => {
@@ -38,22 +41,21 @@ const RecipieList: React.FC = () => {
 
   return (
     <>
-      <h2 style={{ margin: "10px 0 10px 30px" }}>Recipies</h2>
-      <ul>
+      <h2 style={{ margin: "20px 0" }}>Matching Recipies</h2>
+      <List>
         {searchResults.length > 0 &&
           searchResults.map((result, i) => {
-            console.log(result.fileName);
             return (
-              <li
+              <ListElement
                 key={i}
                 data-filename={result.fileName}
                 onClick={handleRecipieClick}
               >
                 {getDisplayName(result.fileName)}
-              </li>
+              </ListElement>
             );
           })}
-      </ul>
+      </List>
     </>
   );
 };

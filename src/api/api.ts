@@ -1,27 +1,29 @@
+import { message } from "antd";
 export const getRecipies = async (searchTerm: string) => {
   try {
     const raw = await fetch(`/search?q=${searchTerm}`);
     const res = await raw.json();
     return res;
   } catch (e) {
-    throw new Error("getRecpies failed");
+    console.error(
+      "Something eldritch from the dungeon dimensions ate your request, pray it doesn't eat you next\n",
+      e
+    );
+    message.warn("Request for recipies failed");
   }
-  /*
-  return {
-    recipies: [
-      { rank: "1", fileName: "fish" },
-      { rank: "2", filename: "fish2" },
-    ],
-  };
-  */
 };
 
 export const getRecipie = async (fileName: string) => {
   try {
-    const raw = await fetch(`/recipie/${fileName}.txt`);
-    const res = await raw.text();
-    return res;
+    console.log("inAPI", fileName);
+    const raw = await fetch(`recipie/${fileName}`);
+    const res = await raw.json();
+    return res.body;
   } catch (e) {
-    throw new Error("getRecipie failed");
+    console.error(
+      "Something eldritch from the dungeon dimensions ate your request, pray it doesn't eat you next\n",
+      e
+    );
+    message.warn(`Request for the recipie for ${fileName.split(" ")} failed`);
   }
 };

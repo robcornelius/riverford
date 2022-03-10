@@ -1,6 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
 import "antd/dist/antd.css";
+import "./styles/styles.css";
 import AppContext from "./contexts/AppDetailsContext";
 import Search from "./components/search/search";
 import RecipieList from "./components/recipieList/recipieList";
@@ -23,10 +24,8 @@ function App() {
           <Col className="gutter-row" span={8}>
             <Row align="bottom" justify="space-around">
               <Search />
-            </Row>
-            <section>
               <RecipieList />
-            </section>
+            </Row>
           </Col>
           <Col className="gutter-row" span={16}>
             <RecipieDetails />
