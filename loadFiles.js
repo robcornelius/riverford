@@ -50,7 +50,6 @@ const filterRecipies = (filterText, files) => {
 
 const loadFileDetails = (filename) => {
   const fullPathToFile = path.join(__dirname, `/src/recipies/${filename}.txt`);
-  console.log("fullPathToFile", fullPathToFile);
   return fs.readFileSync(fullPathToFile, "utf8");
 };
 

@@ -27,7 +27,6 @@ const RecipieList: React.FC = () => {
 
   const handleRecipieClick = async (ev: React.MouseEvent<HTMLLIElement>) => {
     const fileNameFromList = ev.currentTarget.getAttribute("data-filename");
-    console.log("fileNameFromList", fileNameFromList);
     const fileName = await getRecipie(fileNameFromList || "");
     setRecipie(fileName || "");
   };
