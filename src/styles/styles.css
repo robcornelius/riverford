@@ -1,0 +1,14 @@
+body {
+  background-color: rgb(42, 36, 21);
+  color: rgb(217, 214, 209);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: orange;
+}
+p {
+  color: rgb(217, 214, 209);
+}

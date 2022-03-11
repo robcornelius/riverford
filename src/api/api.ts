@@ -15,7 +15,6 @@ export const getRecipies = async (searchTerm: string) => {
 
 export const getRecipie = async (fileName: string) => {
   try {
-    console.log("inAPI", fileName);
     const raw = await fetch(`recipie/${fileName}`);
     const res = await raw.json();
     return res.body;
